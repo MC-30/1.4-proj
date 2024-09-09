@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>U.S. State Populations</title>
+</head>
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.0/chart.min.js" integrity="sha512-asxKqQghC1oBShyhiBwA+YgotaSYKxGP1rcSYTDrB0U6DxwlJjU59B67U8+5/++uFjcuVM8Hh5cokLjZlhm3Vg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<div style='width: 400px'>
+  <canvas id='myChart'></canvas>
+</div>
+<script>
+  var ctx = document.getElementById('myChart');
+  var myChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: ['California', 'Texas', 'Alaska', 'Nevada', 'New York'],
+      datasets: [{
+        label:'States Pop',
+        data:[39538223, 30503301, 733391, 3104614, 19469232],
+        backgroundColor:[
+          'rgb(255, 99, 150)',
+          'rgb(50, 150, 240)',
+          'rgb(255, 200, 80)',
+          'rgb(200, 35, 80)',
+          'rgb(123, 200, 80)',
+          'rgb(15, 29, 80)'
+        ],
+        hoverOffset: 1
+      }]
+    }
+  });
+</script>
+<div style='width: 600px'>
+  <canvas id="myBarChart"></canvas>
+</div>
+<script>
+  var ctx = document.getElementById('myBarChart');
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['California', 'Texas', 'Alaska', 'Nevada', 'New York'],
+      datasets:[{
+        label: 'Population',
+        data: [39538223, 30503301, 733391,3104614,19469232],
+        backgroundColor: [
+          'rgba(0, 255, 132, 0.2)',
+          'rgba(255, 30, 30, 0.2)',
+          'rgba(0, 0, 255, 0.2)',
+          'rgba(255, 128, 0, 0.2)',
+          'rgba(300, 700, 0, 0.2)'
+        ],
+        borderColor: [
+          'rgba(0, 255, 0, 1)',
+          'rgba(255, 30, 30, 1)',
+          'rgba(0, 0, 255, 1)',
+          'rgba(255, 128, 0, 1)',
+          'rgba(300, 700, 0, 1)'
+        ],
+        borderWidth: 5
+      }]
+    },
+    options:{
+      scales:{
+        y: {
+          beginAtZero: true,
+        },
+        x: {
+          ticks: {
+            stepSize: 1000000
+          }
+        }
+      },
+      indexAxis: 'x'
+    }
+  })
+</script>
+<div style='width: 600px'>
+  <canvas id='myLineChart'></canvas>
+</div>
+<script>
+  var ctx = document.getElementById('myLineChart');
+  var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ['2018', '2020', '2022', '2024'],
+      datasets: [{
+        data: [39461588, 39538223, 39040616, 39538223],
+        label: 'California',
+        borderColor: 'rgba(120, 120, 255, 1)'
+
+      },
+        {
+          data: [28628666, 29145505, 30029848, 30503301],
+          label: 'Texas',
+          borderColor: 'rgba(255, 100, 255, 1)'
+        },
+        {
+          data: [735139, 733391, 733276, 733391],
+          label: 'Alaska',
+          borderColor: 'rgba(200, 35, 60, 1)'
+        },
+        {
+          data: [3027341, 3115840, 3177421, 3104614],
+          label: 'Nevada',
+          borderColor: 'rgba(20, 35, 60, 1)'
+        },
+        {
+          data: [19539351, 20201249, 19571216, 19469232],
+          label: 'New York',
+          borderColor: 'rgba(100, 200, 100, 1)'
+        }]
+    },
+
+    options:{
+      plugins:{
+        title: {
+          display: true,
+          text: 'Population Over Time'
+        },
+        legend: {
+          position: 'left'
+        }
+      }
+    }
+  });
+</script>
+</body>
+</html>
